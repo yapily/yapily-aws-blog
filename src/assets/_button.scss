@@ -1,0 +1,30 @@
+.button{
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    min-width: 32px;
+    box-shadow: none;
+    cursor: pointer;
+}
+.button.secondary {
+    background: #ffffff;
+    color: #000;
+    border: 1px solid #d6e0e9;
+}
+.button.secondary:hover {
+    transition: all 0.366s ease;
+    border: 1px solid #000;
+    background: #ffffff;
+}
+.button.primary {
+    background: #000;
+    color: #ffffff;
+    border: 1px solid #000;
+}
+.button.primary:hover {
+    border: 1px solid #000;
+    color: #000;
+    background: #ffffff;
+    transition: all 0.366s ease;
+}
+

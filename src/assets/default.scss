@@ -1,0 +1,81 @@
+.justify-center{
+  justify-content: center;
+}
+@import "./vendors/_index.scss";
+@import "cards";
+@import "button";
+@import "institutionConsent";
+
+@import "institutionsList";
+.transaction-item {
+  @extend .card, .mb-2;
+}
+.transaction-content {
+  @extend .d-flex;
+}
+
+.transaction-value {
+  @extend .ml-auto;
+}
+
+.accounts-icon{
+  width: 60px;
+
+}
+img{
+  height: auto;
+  max-width: 100%;
+}
+.accounts-content,
+ {
+  @extend .d-flex;
+}
+
+.accounts.detail{
+  .accounts-list{
+    @extend .mb-4;
+  }
+}
+
+.accounts-list {
+  min-height: 63px;
+
+}
+
+.accounts.detail {
+  .accounts-item {
+    min-height: 63px;
+  }
+}
+
+ul{
+  list-style: none;
+}
+.accounts-text {
+  @extend .d-flex, .flex-column, .flex-fill;
+
+  .accounts-subtitle {
+    @extend .mt-auto;
+  }
+}
+
+.accounts-value {
+  @extend .d-flex;
+
+  .accounts-figure {
+    @extend .mt-auto, .mb-auto;
+  }
+}
+
+.account-delete {
+  @extend .d-flex, .ml-1;
+
+  .account-delete-button {
+    @extend .mt-auto, .mb-auto, .p-2;
+
+    &:hover {
+      color: red;
+      background-color: transparent;
+    }
+  }
+}
