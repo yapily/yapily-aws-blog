@@ -1,7 +1,5 @@
 # AWS Yapily Demo App
 
-# AWS Yapily Demo App
-
 This repo demonstrates how to build a Fintech app on AWS that uses yapily Link to connect a user to his or her bank
 account. The app allows users to sign up using Amazon Cognito, select their bank from a list, log in to the bank, and display the latest transactions. The app is built using AWS Amplify, Amazon API Gateway, Amazon Cognitio, AWS Secrets
 Manager and Amazon DynamoDB.
