@@ -1,4 +1,18 @@
-# aws-blog
+# AWS Yapily Demo App
+
+# AWS Yapily Demo App
+
+This repo demonstrates how to build a Fintech app on AWS that uses yapily Link to connect a user to his or her bank
+account. The app allows users to sign up using Amazon Cognito, select their bank from a list, log in to the bank, and display the latest transactions. The app is built using AWS Amplify, Amazon API Gateway, Amazon Cognitio, AWS Secrets
+Manager and Amazon DynamoDB.
+
+## Pre-requisites
+Before building the app, you will need to get your API keys from Yapily. Go to https://dashboard.yapily.com.
+**(to write more here about creating account and applications)**
+Install AWS Amplify by following the instructions at https://docs.amplify.aws/cli/start/install/
+
+If you have not already done so, create a default AWS configuration profile by running the **aws configure** command, as described at https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config
+
 
 ## Project setup
 ```
@@ -23,18 +37,6 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-# AWS Yapily Demo App
-
-This repo demonstrates how to build a Fintech app on AWS that uses yapily Link to connect a user to his or her bank
-account. The app allows users to sign up using Amazon Cognito, select their bank from a list, log in to the bank, and display the latest transactions. The app is built using AWS Amplify, Amazon API Gateway, Amazon Cognitio, AWS Secrets
-Manager and Amazon DynamoDB.
-
-## Pre-requisites
-Before building the app, you will need to get your API keys from Yapily. Go to https://dashboard.yapily.com. 
-**(to write more here about creating account and applications)**
-Install AWS Amplify by following the instructions at https://docs.amplify.aws/cli/start/install/
-
-If you have not already done so, create a default AWS configuration profile by running the **aws configure** command, as described at https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config
 
 ## Building the app
 
