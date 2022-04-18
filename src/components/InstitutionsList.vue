@@ -16,7 +16,7 @@
         v-for="institution in filterInstitutions"
         :key="institution.id"
         class="institutions-item"
-        @click="$router.push(`/institutions/${institution.id}`)"
+        @click="$emit('institutionSelected', institution.id)"
       >
         <div class="institution-content">
           <div v-for="mediaItem in institution.media" :key="mediaItem.source">

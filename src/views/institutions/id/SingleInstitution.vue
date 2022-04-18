@@ -67,7 +67,7 @@ const startInterval = () => {
       }
       const { id } = authRequestData.value;
       const result = await API.get("awsblogapi", `/v1/consents/${id}`);
-      console.log(result);
+
       if (result.data && result.data?.status === "AUTHORIZED") {
         clearInterval(interval.value);
         // 'Your account has now been connected.
