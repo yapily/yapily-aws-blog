@@ -1,11 +1,13 @@
 .justify-center{
   justify-content: center;
 }
+body{
+  margin: 0;
+}
 @import "./vendors/_index.scss";
 @import "cards";
 @import "button";
 @import "institutionConsent";
-
 @import "institutionsList";
 .transaction-item {
   @extend .card, .mb-2;
