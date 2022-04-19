@@ -34,23 +34,17 @@
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import InstitutionsList from "@/components/InstitutionsList";
-import { API } from "aws-amplify";
+import { useInstitutions } from "../../hooks/useInstitutions";
 
 const router = useRouter();
-const institutions = ref([]);
 const selectedDemo = ref("");
 const demoSelected = ref(false);
 
+const { fetchInstitutions, institutions } = useInstitutions();
 // call fetchInstitutions function when page is mounted
 onMounted(async () => {
   await fetchInstitutions();
 });
-
-// call the API  endpoint /v1/institutions to return a list of institutions
-const fetchInstitutions = async () => {
-  const res = await API.get("awsblogapi", "/v1/institutions");
-  institutions.value = res.data; // pass the data to the institutions variable
-};
 
 const demoType = (type) => {
   selectedDemo.value = type;

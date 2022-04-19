@@ -22,13 +22,21 @@
       <label for="accountNumber">Account number: </label>
       <input
         type="number"
-        class="input mb-5"
+        class="input mb-3"
         id="accountNumber"
-        name="sortCode"
+        name="accountNumber"
         v-model="payeeDetails.accountNumber"
         placeholder="Sort code"
       />
-
+      <label for="amount">Amount: </label>
+      <input
+        type="number"
+        class="input mb-5"
+        id="amount"
+        name="amount"
+        v-model="payeeDetails.amount"
+        placeholder="Amount"
+      />
       <input type="submit" class="button primary" />
     </div>
   </form>
@@ -43,6 +51,7 @@ const payeeDetails = reactive({
   fullName: "",
   sortCode: "",
   accountNumber: "",
+  amount: 0.01,
 });
 
 const makePayment = () => {
