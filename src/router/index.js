@@ -4,6 +4,8 @@ import SingleInstitution from "../views/institutions/id/SingleInstitution";
 import CallbackView from "../views/CallbackView.vue";
 import AccountsView from "../views/AccountsView.vue";
 import PaymentDemo from "../views/demoType/payment/PaymentView.vue";
+import PaymentConsent from "../views/demoType/payment/PaymentConsentView.vue";
+import PaymentDetail from "../views/PaymentDetailView.vue";
 
 const routes = [
   {
@@ -30,6 +32,16 @@ const routes = [
     path: "/payment",
     name: "paymentDemo",
     component: PaymentDemo,
+  },
+  {
+    path: "/payment/detail",
+    name: "PaymentDetail",
+    component: PaymentDetail,
+  },
+  {
+    path: "/payment/:institutionId/consent",
+    name: "PaymentConsent",
+    component: PaymentConsent,
   },
 ];
 

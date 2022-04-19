@@ -51,7 +51,8 @@ const payeeDetails = reactive({
   fullName: "",
   sortCode: "",
   accountNumber: "",
-  amount: 0.01,
+  amount: 1,
+  reference: "Yapily-AWS-test",
 });
 
 const makePayment = () => {

@@ -63,6 +63,7 @@ onMounted(async () => {
     `/v1/accounts/${user.value.attributes.sub}`
   );
   // pre select first object in array for demo purposes
+  console.log(userConsents);
   const { consentToken, institutionId } = userConsents[0];
 
   if (consentToken) {

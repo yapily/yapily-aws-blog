@@ -7,9 +7,13 @@
 
 <script setup>
 import PayeeDetailForm from "@/components/PayeeDetailForm.vue";
+import { useRoute, useRouter } from "vue-router";
+
+const router = useRouter();
+const route = useRoute();
 
 const makePayment = (payeeDetails) => {
   sessionStorage.setItem("payeeDetails", JSON.stringify(payeeDetails));
-  console.log(payeeDetails);
+  router.push(`/payment/${route.query.institutionId}/consent`);
 };
 </script>

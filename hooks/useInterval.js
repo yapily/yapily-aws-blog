@@ -1,44 +1,31 @@
 import { ref, onBeforeUnmount } from "vue";
 import { API } from "aws-amplify";
-import { useRouter } from "vue-router";
 
-const useInterval = ({ demoType }) => {
+const useInterval = () => {
   const interval = ref(null);
   const startTime = ref(null);
-  const router = useRouter();
-
+  const consentData = ref(null);
   onBeforeUnmount(() => {
     terminateInterval();
   });
-  const startInterval = ({ authRequestData, user }) => {
+  const startInterval = ({ authRequestData }) => {
     startTime.value = new Date().getTime();
     if (authRequestData.value) {
       interval.value = setInterval(async () => {
         if (new Date().getTime() - startTime.value > 300000) {
-          // clear interval after 5 minutes
-          clearInterval(interval.value);
+          // clear interval after 3 minutes
+          terminateInterval();
           return;
         }
         const { id } = authRequestData.value;
         const result = await API.get("awsblogapi", `/v1/consents/${id}`);
 
         if (result.data && result.data?.status === "AUTHORIZED") {
-          clearInterval(interval.value);
+          terminateInterval();
           // 'Your account has now been connected.
           setTimeout(async () => {
-            clearInterval(interval.value);
-            const { consentToken } = result.data;
-            if (demoType === "ais") {
-              await API.post("awsblogapi", `/v1/accounts`, {
-                body: {
-                  userId: user.value.attributes.sub,
-                  institutionId: id,
-                  consentToken,
-                },
-              }).then(() => {
-                router.push("/accounts");
-              });
-            }
+            terminateInterval();
+            consentData.value = result.data;
           }, 3000);
         }
       }, 2000);
@@ -52,6 +39,7 @@ const useInterval = ({ demoType }) => {
   return {
     interval,
     startTime,
+    consentData,
     startInterval,
     terminateInterval,
   };
