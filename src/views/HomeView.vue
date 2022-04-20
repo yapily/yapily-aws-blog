@@ -7,6 +7,7 @@
           <div class="card m-2 cursor" @click="demoType('ais')">
             <div class="d-flex" id="card-one-title">
               <h2 class="card-title highlight">Data</h2>
+              <img src="@/assets/icon/ais-icon.png" alt="" />
             </div>
           </div>
         </div>
@@ -14,6 +15,7 @@
           <div class="card m-2 cursor" @click="demoType('pis')">
             <div class="d-flex" id="card-two-title">
               <h2 class="card-title highlight">Payments</h2>
+              <img src="@/assets/icon/pis-icon.png" alt="" />
             </div>
           </div>
         </div>

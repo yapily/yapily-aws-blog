@@ -44,6 +44,12 @@
       >Please note down your payment ID for future reference and status
       checking</small
     >
+    <div class="d-flex align-items-center justify-content-center mt-2">
+      <router-link to="/" class="button primary" style="text-decoration: none"
+        >Home</router-link
+      >
+    </div>
+
     <hr class="mt-2" />
   </div>
 </template>

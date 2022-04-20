@@ -54,10 +54,6 @@
           color: #4d5866;
         }
 
-        img {
-          image-rendering: pixelated;
-          max-width: 200px;
-        }
       }
 
       .desktop-action {
@@ -100,5 +96,9 @@
 }
 
 .qr-code-card {
-  @extend .card, .mt-3, .mb-4;
+  @extend  .mt-3, .mb-4;
+}
+.qr-code-img {
+  image-rendering: pixelated;
+  max-width: 300px;
 }

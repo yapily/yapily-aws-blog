@@ -16,7 +16,7 @@
       ></path>
     </svg>
 
-    <router-view class="middle-content" />
+    <router-view class="middle-content mb-5" />
     <Footer />
   </Authenticator>
 </template>
