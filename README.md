@@ -1,53 +1,58 @@
 # AWS Yapily Demo App
-
 This repo demonstrates how to build a Fintech app on AWS that uses yapily Link to connect a user to his or her bank
 account. The app allows users to sign up using Amazon Cognito, select their bank from a list, log in to the bank, and display the latest transactions. The app is built using AWS Amplify, Amazon API Gateway, Amazon Cognitio, AWS Secrets
 Manager and Amazon DynamoDB.
 
+![img.png](homepage.png)
+
 ## Pre-requisites
 Before building the app, you will need to get your API keys from Yapily. Go to https://dashboard.yapily.com.
-**(to write more here about creating account and applications)**
+
+Once logged into the dashboard 
+
+### Create new Application
+
+![](./application-create.png)
+
+Once the application is created it will give you the Application key and Secret to download
+
+![img.png](application-create-key.png)
+
+save these credentials
+
+### Add institutions to the application
+
+![img.png](application-add-institutions.png)
+
+![img.png](application-add-institutions-yapily-mock.png)
+
+add Yapily mock institution
+
+![img.png](application-institution-detail.png)
+
+Select the mock environment and click add 
+
+
+![img.png](application-institution-preconfigured.png)
+
+Choose the Preconfigured Credentials
+
+Your application should now have an institution which we can test the API with
+
+### Add Callback URL
+
+![img.png](application-callback.png)
+
+In this example we will add http://localhost:3000/callback to our Authorisation Callbacks in the application
+
+
+### Install AWS Amplify
+
 Install AWS Amplify by following the instructions at https://docs.amplify.aws/cli/start/install/
 
 If you have not already done so, create a default AWS configuration profile by running the **aws configure** command, as described at https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config
 
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
-## Building the app
-
-```
-$ git clone **add repo url here**
-$ cd aws-yapily-demo-app
-$ npm install
-
-```
-
-Then perform the following steps.
-
-1. Initialize a new amplify project.
+## 1. Initialize a new amplify project.
 
 ### `amplify init`
 
@@ -57,7 +62,7 @@ Then perform the following steps.
 ? Select the authentication profile you want to use: AWS profile 
 ? Please choose the profile you want to use: default
 ```
-2. Add Authentication.
+## 2. Add Authentication.
 
 ### `amplify add auth`
 ```
@@ -68,7 +73,7 @@ Then perform the following steps.
 ? Do you want to configure advanced settings? No, I am done
 ```
 
-3. Add the API.
+## 3. Add the API.
 
 ### `amplify add api`
 
@@ -96,8 +101,14 @@ Available advanced settings:
 ? Do you want to invoke this function on a recurring schedule? No
 ? Do you want to enable Lambda layers for this function? No
 ? Do you want to configure environment variables for this function? Yes
-? Enter the environment variable name: CLIENT_ID
-? Enter the environment variable value: [Enter your yapily client ID]
+? Enter the environment variable name: APPLICATION_ID
+? Enter the environment variable value: [Enter your yapily application Key - when applicaiton was created]
+? Select what you want to do with environment variables: Add new environment variable
+? Enter the environment variable name: APPLICATION_SECRET
+? Enter the environment variable value: [Enter your yapily application secret key - when applicaiton was created]
+? Select what you want to do with environment variables: Add new environment variable
+? Enter the environment variable name: APPLICATION_USER
+? Enter the environment variable value: [can be a random string]
 ? Select what you want to do with environment variables: Add new environment variable
 ? Enter the environment variable name: TABLE_NAME
 ? Enter the environment variable value: yapilyawsdb
@@ -135,9 +146,11 @@ install some dependencies we're going to be using
 `npm i aws-sdk`
 
 
-4. `amplify push`
+## 4. Push to amplify
 
-5. Add Storage.
+`amplify push`
+
+## 5. Add Storage.
 
 ### `amplify add storage`
 
@@ -179,7 +192,7 @@ https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.Core
 Successfully added resource yapilyawsdb locally
 ```
 
-6. Update our Lambda function to add permissions for database.
+## 6. Update our Lambda function to add permissions for database.
 
 ### `amplify update function`
 
@@ -218,7 +231,7 @@ You can access the following resource attributes as environment variables from y
 ? Do you want to edit the local lambda function now? No
 ```
 
-7. Add Hosting to deploy the site.
+## 7. Add Hosting to deploy the site.
 
 ### `amplify add hosting`
 
@@ -226,10 +239,19 @@ You can access the following resource attributes as environment variables from y
 ? Choose a type: Manual deployment
 
 
-8. Publish the site.
+## 8. Publish the site.
 
 ### `amplify publish`
 
 ## Testing the app
 
-Go to the URL displayed by the amplify publish command, and sign up as a new user. After logging in, select a bank from the list displayed. If you are using the sandbox environment,maybe provide some sandbox credentials for user to use or use yapily mock
+ ### Install depencies
+
+`npm install`
+
+ ### Run dev 
+
+`npm run serve`
+
+open localhost:3000
+  
